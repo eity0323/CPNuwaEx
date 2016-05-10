@@ -1,0 +1,22 @@
+apply plugin:"groovy"
+apply plugin:"maven"
+
+repositories{
+    mavenCentral()
+}
+
+dependencies{
+    compile localGroovy()
+    compile gradleApi()
+    compile 'commons-io:commons-io:1.4'
+    compile 'commons-codec:commons-codec:1.6'
+    compile 'org.ow2.asm:asm:5.0.3'
+}
+
+uploadArchives{
+    repositories{
+        mavenDeployer{
+            repository(url:uri('../repo'))
+        }
+    }
+}
